@@ -1,4 +1,21 @@
-<h3>Home</h3>
-<p>Welcome to the home of <%= @owner.name %>.</p>
-<p>I was born on <%= @owner.birthdate %>.</p>
-<p>Only <%= @owner.countdown %> days until my birthday!</p>
+<% content_for :title, 'Welcome' %>
+<% content_for :description, 'Website of Foobar Kadigan' %>
+<section>
+  <%# image_tag "http://lorempixel.com/800/480/cats/1", alt: 'cat', title: 'Cat' %>
+</section>
+<section>
+  <div class="column">
+    <h3>Stay in touch.</h3>
+  </div>
+  <div class="column">
+    <div class="form-centered">
+      <%= form_with model: @visitor, local: true do |f| %>
+        <%= f.email_field :email,
+              placeholder: 'Your email address...',
+              autofocus: true %>
+        <br/><br/>
+        <%= f.submit 'Sign up for the newsletter', class: 'submit' %>
+      <% end %>
+    </div>
+  </div>
+</section>

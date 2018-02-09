@@ -14,7 +14,8 @@ class ContactsController < ApplicationController
       redirect_to root_path
     else
       Rails.logger.debug 'DEBUG: contact not valid'
-      redirect_to new_contact_path, alert: "Missing Name, Email or Message."
+      flash[:alert] = "Missing Name, Email or Message."
+      render :new
     end
   end
 
