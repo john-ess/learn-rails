@@ -5,10 +5,11 @@ class ContactsController < ApplicationController
   end
 
   def create
-    Rails.logger.debug 'DEBUG: entering create'
+    #Rails.logger.debug 'DEBUG: entering create'
     @contact = Contact.new(secure_params)
     if @contact.valid?
-      Rails.logger.debug 'DEBUG: contact valid'
+      Rails.logger.debug 'DEBUG: contact valid, attempting to send email'
+      UserMailer.contact_email(@contact).deliver_now
       flash[:notice] = "Message sent from #{@contact.name}"
       redirect_to root_path
     else
