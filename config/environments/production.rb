@@ -90,7 +90,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # email enabled in production
-  config.action.mailer.smtp_settings = {
+  config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: 587,
     domain: Rails.application.secrets.domain_name,
