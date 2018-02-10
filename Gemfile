@@ -33,7 +33,6 @@ group :development do
   gem 'rails_layout'
 end
 
-
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.21'
 end
